@@ -11,16 +11,18 @@ public class HealthBarManager : MonoBehaviour {
 
 	public GameObject[] hearts;
 	public int numberOfHearts;
-    public bool isInvincible = false;
-    public float knockbackTimeInSeconds;
-    public float invincibleTimeInSeconds;
+	public bool isInvincible = false;
+	public float knockbackTimeInSeconds;
+	public float invincibleTimeInSeconds;
 
-    private MovementScript thePlayer;
+	private MovementScript thePlayer;
+	private Rigidbody2D playerbody;
 
 	void Start ()
 	{
 		numberOfHearts = hearts.Length;
 		thePlayer = GetComponent<MovementScript> ();
+		playerbody = GetComponent<Rigidbody2D> ();
 
 		/*	Taylor: Checks to see if game is being loaded or if it is on Level02(or a different level). 
 		 	Basically, checks to see if its a new game. 
@@ -35,14 +37,6 @@ public class HealthBarManager : MonoBehaviour {
 			}
 		}
 	}
-	/*
-	void Awake(){
-		Debug.Log ("awake");
-		if (GameManager.instance.health < hearts.Length) {
-			SetupScene (GameManager.instance.health);
-		}
-
-	}*/
 
 	public void SetNumberOfHearts(int number)
 	{
@@ -50,78 +44,77 @@ public class HealthBarManager : MonoBehaviour {
 		numberOfHearts = number;
 	}
 
-    public void OnCollisionStay2D(Collision2D coll)
-    {
-        if (isInvincible == false)
-        {
-            //For some reason this sometimes takes more than one heart from the player. Not sure why.
-            if (coll.gameObject.tag == "Danger")
-            {
-                SendKnockBackMessage(coll.transform.position);
-                numberOfHearts--;
-                hearts[numberOfHearts].SetActive(false);
-                StartCoroutine("makeInvincible");
-            }
-        }
-    }
+	public void OnCollisionStay2D(Collision2D coll)
+	{
+		if (isInvincible == false)
+		{
+			//For some reason this sometimes takes more than one heart from the player. Not sure why.
+			if (coll.gameObject.tag == "Danger")
+			{
+				SendKnockBackMessage(coll.transform.position);
+				numberOfHearts--;
+				hearts[numberOfHearts].SetActive(false);
+				StartCoroutine("makeInvincible");
+			}
+		}
+	}
 
-    public void OnCollisionEnter2D(Collision2D coll){
-        if (isInvincible == false)
-        {
-            //For some reason this sometimes takes more than one heart from the player. Not sure why.
-            if (coll.gameObject.tag == "Danger")
-            {
-                SendKnockBackMessage(coll.transform.position);
-                numberOfHearts--;
-                hearts[numberOfHearts].SetActive(false);
-                StartCoroutine("makeInvincible");
-            }
-        }
+	public void OnCollisionEnter2D(Collision2D coll){
+		if (isInvincible == false)
+		{
+			//For some reason this sometimes takes more than one heart from the player. Not sure why.
+			if (coll.gameObject.tag == "Danger")
+			{
+				SendKnockBackMessage(coll.transform.position);
+				hurtPlayer (1);
+				StartCoroutine("makeInvincible");
+			}
+		}
 
-        if (coll.gameObject.tag == "Kill") //Tyler here, creating auto kill areas.
-        {
-            numberOfHearts = 0;
-            foreach (GameObject go in hearts)
-                go.SetActive(false);
-        }
+		if (coll.gameObject.tag == "Kill") //Tyler here, creating auto kill areas.
+		{
+			numberOfHearts = 0;
+			foreach (GameObject go in hearts)
+				go.SetActive(false);
+		}
 
-        if (numberOfHearts == 0)
-        {
-            thePlayer.SendMessage("SetDeath", true);
-            Reset();
-        }
-    }
+		if (numberOfHearts == 0)
+		{
+			thePlayer.SendMessage("SetDeath", true);
+			Reset();
+		}
+	}
 
 	public void OnTriggerEnter2D(Collider2D coll)
 	{
-        if (isInvincible == false)
-        {
-            //For some reason this sometimes takes more than one heart from the player. Not sure why.
-            if (coll.gameObject.tag == "EnemyProjectile")
-            {
-                SendKnockBackMessage(coll.transform.position);
-                numberOfHearts--;
-                hearts[numberOfHearts].SetActive(false);
-                StartCoroutine("makeInvincible");
-            }
-        }
+		if (isInvincible == false)
+		{
+			//For some reason this sometimes takes more than one heart from the player. Not sure why.
+			if (coll.gameObject.tag == "EnemyProjectile")
+			{
+				SendKnockBackMessage(coll.transform.position);
+				numberOfHearts--;
+				hearts[numberOfHearts].SetActive(false);
+				StartCoroutine("makeInvincible");
+			}
+		}
 
-        if (coll.gameObject.tag == "Kill") //Tyler here, creating auto kill areas.
-        {
-            numberOfHearts = 0;
-            foreach (GameObject go in hearts)
-                go.SetActive(false);
-        }
+		if (coll.gameObject.tag == "Kill") //Tyler here, creating auto kill areas.
+		{
+			numberOfHearts = 0;
+			foreach (GameObject go in hearts)
+				go.SetActive(false);
+		}
 
-        if (numberOfHearts == 0)
-        {
-            thePlayer.SendMessage("SetDeath", true);
-            Reset();
-        }
+		if (numberOfHearts == 0)
+		{
+			thePlayer.SendMessage("SetDeath", true);
+			Reset();
+		}
 
-    }
+	}
 
-    private void Reset(){
+	private void Reset(){
 		numberOfHearts = hearts.Length;
 		foreach(GameObject go in hearts)
 			go.SetActive (true);		
@@ -137,16 +130,6 @@ public class HealthBarManager : MonoBehaviour {
 				hearts [i].SetActive (false);
 		}
 	}
-	/*
-	private void SetupScene(){
-		//numberOfHearts = resumeNumberOfHearts;
-		for(int i=0; i<hearts.Length; i++){
-			if (i < numberOfHearts)
-				hearts [i].SetActive (true);
-			else
-				hearts [i].SetActive (false);
-		}
-	}*/
 
 	IEnumerator haltMovement(){
 		thePlayer.movementEnabled = false;
@@ -154,20 +137,21 @@ public class HealthBarManager : MonoBehaviour {
 		thePlayer.movementEnabled = true;
 	}
 
-    IEnumerator makeInvincible()
-    {
-        isInvincible = true;
-        yield return new WaitForSeconds(invincibleTimeInSeconds);
-        isInvincible = false;
-        //Debug.Log("Player is not Invincible");
-    }
+	IEnumerator makeInvincible()
+	{
+		isInvincible = true;
+		yield return new WaitForSeconds(invincibleTimeInSeconds);
+		isInvincible = false;
+		//Debug.Log("Player is not Invincible");
+	}
 
-    public void SendKnockBackMessage(Vector3 hazardObjPos){
+	public void SendKnockBackMessage(Vector3 hazardObjPos){
 		StartCoroutine ("haltMovement"); 
-		Vector3 heading = transform.position - hazardObjPos;
-		heading /= (heading.magnitude);
-		Vector2 directionConverted = new Vector2 (heading.x, heading.y);
-		thePlayer.SendMessage ("RecieveKnockBackMessage", directionConverted);
+
+		if(hazardObjPos.x > playerbody.transform.position.x)
+			playerbody.AddRelativeForce(new Vector2(-500,500));
+		else 
+			playerbody.AddForce(new Vector2(500,500));
 	}
 
 	public int getNumberOfActiveHearts()

@@ -105,10 +105,10 @@ public class MovementScript : MonoBehaviour {
 		lastCheckpoint = checkpointPos;
 	}
 
-	public void RecieveKnockBackMessage(Vector2 knockbackDistance)
+	/*public void RecieveKnockBackMessage(Vector2 knockbackDistance)
 	{
 		playerBody.velocity = knockbackDistance * 2;
-	}
+	}*/
 
 	void OnTriggerStay2D(Collider2D collider)
 	{		
