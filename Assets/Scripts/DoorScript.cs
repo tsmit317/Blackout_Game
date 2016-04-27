@@ -46,7 +46,7 @@ public class DoorScript : MonoBehaviour {
 	IEnumerator animateOpening()
 	{
 		doorAnim.SetBool ("opening", true);
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.25f);
 		doorAnim.SetBool ("isOpen", true);
 
 	}
@@ -54,7 +54,7 @@ public class DoorScript : MonoBehaviour {
 	IEnumerator animateClosing()
 	{
 		doorAnim.SetBool ("opening", false);
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.25f);
 		doorAnim.SetBool ("isOpen", false);
 
 	}
