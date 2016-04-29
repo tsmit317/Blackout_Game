@@ -15,6 +15,12 @@ public class DoorScript : MonoBehaviour {
 		canActivate = false;
 	}
 
+	void Update(){
+		if (canActivate && Input.GetKeyDown (KeyCode.E)) {
+			EnterDoor ();				
+		}
+	}
+
 	public void EnterDoor(){
 		//For reusability - checks the current levels build index
 		if(SceneManager.GetActiveScene ().buildIndex == 2) 

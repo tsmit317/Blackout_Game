@@ -105,20 +105,6 @@ public class MovementScript : MonoBehaviour {
 		lastCheckpoint = checkpointPos;
 	}
 
-	/*public void RecieveKnockBackMessage(Vector2 knockbackDistance)
-	{
-		playerBody.velocity = knockbackDistance * 2;
-	}*/
-
-	void OnTriggerStay2D(Collider2D collider)
-	{		
-		if(Input.GetKeyDown(KeyCode.X) && collider.tag == "Door")
-		{
-			Debug.Log ("player StayDetected");
-			collider.gameObject.SendMessage("EnterDoor");
-		}
-	}
-
 	/*	Taylor:
 		When player comes into contact with platform, sets the platform as the parent.
 		Allows the player to move with the platform, rather than sliding off. */
