@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: c616d8014a06f4656975ffff9793f297
-timeCreated: 1461977511
+timeCreated: 1461982663
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: blackout_0
+    21300002: blackout_1
+    21300004: blackout_2
+    21300006: blackout_3
+    21300008: blackout_4
+    21300010: blackout_5
+    21300012: blackout_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,7 +57,119 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: blackout_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 474
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 395
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 316
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 237
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
+    - name: blackout_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 410
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -205, y: 39.5}
+        - {x: -205, y: -39.5}
+        - {x: 205, y: -39.5}
+        - {x: 205, y: 39.5}
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
