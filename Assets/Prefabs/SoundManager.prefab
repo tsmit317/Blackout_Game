@@ -45,7 +45,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08df748ca118d42a887db65c4a84f0c5, type: 3}
   m_PlayOnAwake: 0
+<<<<<<< HEAD
   m_Volume: 1
+=======
+  m_Volume: 0.5
+>>>>>>> Tyler-Working
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -96,7 +100,11 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+<<<<<<< HEAD
     m_RotationOrder: 0
+=======
+    m_RotationOrder: 4
+>>>>>>> Tyler-Working
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -119,7 +127,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7564023ad86fa4580bcd6494b8f37c97, type: 3}
   m_PlayOnAwake: 0
+<<<<<<< HEAD
   m_Volume: 1
+=======
+  m_Volume: 0.5
+>>>>>>> Tyler-Working
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -170,7 +182,11 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+<<<<<<< HEAD
     m_RotationOrder: 0
+=======
+    m_RotationOrder: 4
+>>>>>>> Tyler-Working
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -244,7 +260,11 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+<<<<<<< HEAD
     m_RotationOrder: 0
+=======
+    m_RotationOrder: 4
+>>>>>>> Tyler-Working
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -267,7 +287,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bea416186c80140b88868243b59f8145, type: 3}
   m_PlayOnAwake: 0
+<<<<<<< HEAD
   m_Volume: 1
+=======
+  m_Volume: 0.5
+>>>>>>> Tyler-Working
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -318,7 +342,11 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+<<<<<<< HEAD
     m_RotationOrder: 0
+=======
+    m_RotationOrder: 4
+>>>>>>> Tyler-Working
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -341,7 +369,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bea416186c80140b88868243b59f8145, type: 3}
   m_PlayOnAwake: 0
+<<<<<<< HEAD
   m_Volume: 1
+=======
+  m_Volume: 0.5
+>>>>>>> Tyler-Working
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -392,7 +424,11 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+<<<<<<< HEAD
     m_RotationOrder: 0
+=======
+    m_RotationOrder: 4
+>>>>>>> Tyler-Working
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -426,6 +462,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 208153676e9b0479ba35a93fe5ccdd4c, type: 3}
   - {fileID: 8300000, guid: 6c7041d9de3b4477497ac436230d9313, type: 3}
   - {fileID: 8300000, guid: e66e547d19b3c4cffa038721bdea9867, type: 3}
+<<<<<<< HEAD
+=======
+  - {fileID: 8300000, guid: 8ee3c6317a3e84dafa30faa74d0ebc97, type: 3}
+  - {fileID: 8300000, guid: 7b8d5164fc6e94261b7f0c862226190e, type: 3}
+  - {fileID: 8300000, guid: 0986fe1eb2e72476fa9de7517709bc74, type: 3}
+>>>>>>> Tyler-Working
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

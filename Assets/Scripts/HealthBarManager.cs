@@ -18,12 +18,14 @@ public class HealthBarManager : MonoBehaviour {
 
 	private MovementScript thePlayer;
 	private Rigidbody2D playerbody;
+	private SpriteRenderer spriteRenderer;//Used for changing some colors when invincibility kicks in. 
 
 	void Start ()
 	{
 		numberOfHearts = hearts.Length;
 		thePlayer = GetComponent<MovementScript> ();
 		playerbody = GetComponent<Rigidbody2D> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 
 		/*	Taylor: Checks to see if game is being loaded or if it is on Level02(or a different level). 
 		 	Basically, checks to see if its a new game. 
@@ -144,19 +146,27 @@ public class HealthBarManager : MonoBehaviour {
 	IEnumerator makeInvincible()
 	{
 		isInvincible = true;
+		spriteRenderer.material.SetColor("_Color", Color.grey);//One way of changing the color to grey.
 		yield return new WaitForSeconds(invincibleTimeInSeconds);
 		isInvincible = false;
-		//Debug.Log("Player is not Invincible");
+		spriteRenderer.material.SetColor("_Color", Color.white);//One way of changing the color to white.
+		Debug.Log("Player is not Invincible");
 	}
 
 	public void SendKnockBackMessage(Vector3 hazardObjPos){
         playerbody.velocity = new Vector2(0, 0);
 		StartCoroutine ("haltMovement"); 
 
-		if(hazardObjPos.x > playerbody.transform.position.x)
-			playerbody.AddRelativeForce(new Vector2(-500,500));
+		if (hazardObjPos.x > playerbody.transform.position.x) 
+		{
+			playerbody.velocity = new Vector2 (0, 0);//Probably will reset the momentum to correct boost glitch.
+			playerbody.AddRelativeForce (new Vector2 (-200, 200));//Knocking towards left.
+		} 
 		else 
-			playerbody.AddForce(new Vector2(500,500));
+		{
+			playerbody.velocity = new Vector2 (0, 0);
+			playerbody.AddForce (new Vector2 (200, 200));//Knocking towards right.
+		}
 	}
 
 	public int getNumberOfActiveHearts()
@@ -167,6 +177,7 @@ public class HealthBarManager : MonoBehaviour {
 	//Eventually want to make methods to add health, reset health(Have that^), and deal specific damage(Here)
 	public void hurtPlayer (int damageAmount) //Tyler: This is used when the player activates devices that need energy.
 	{
+		SoundManager.instance.playSoundEffect (6);//Hurt sound.
 		numberOfHearts = numberOfHearts-damageAmount;
 
 		if (numberOfHearts < 0)//Just in case, making sure it can't go under 0 hearts/energy units.         
