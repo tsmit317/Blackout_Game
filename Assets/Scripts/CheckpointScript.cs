@@ -15,8 +15,7 @@ public class CheckpointScript : MonoBehaviour {
 		checkpointAnim.SetBool ("Activated", isActivated);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider){	
-		SoundManager.instance.playSoundEffect (3);
+	void OnTriggerEnter2D(Collider2D collider){		
 		if (collider.tag == "Player"){
 			collider.SendMessage ("SetCheckpointPosition", gameObject.transform.position);
 			isActivated = true;

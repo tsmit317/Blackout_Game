@@ -18,11 +18,6 @@ public class enemyFollowController : MonoBehaviour {
     bool isCharging;
     Rigidbody2D enemyRB;
 
-	//Sound Delaying Variables ((Created by Tyler for experimentation))
-	private bool soundCanPlay = true;
-	private float soundCanPlayTime;
-	private float soundDelayTime = 5f;
-
 	// Use this for initialization
 	void Start ()
     {
@@ -32,11 +27,6 @@ public class enemyFollowController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (Time.time > soundCanPlayTime) //Allowing the sound that was delayed to play again if the conditions are met.
-		{
-			soundCanPlay = true;
-		}
-
 	    if (Time.time > nextFlipChance)
         {
             if (Random.Range(0, 10) >= 5)
@@ -52,13 +42,6 @@ public class enemyFollowController : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-			if(soundCanPlay)//Plays the sound if 'soundCanPlay' thinks it's ok. He knows best. ((This is to prevent sound spamming))
-			{
-				SoundManager.instance.playSoundEffect (5);//You just got detected!
-				soundCanPlay = false; //Sound cant play if player reenters before the time is up.
-				soundCanPlayTime = Time.time + soundDelayTime;//Setting a time to revert the soundCanPlay bool at.
-			}
-
             if (facingRight && other.transform.position.x < transform.position.x)
             {
                 flipFacing();
