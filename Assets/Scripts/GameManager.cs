@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager Instance = null;
-
+	public bool hasFlashedOnce = false;
 	//Contains all the variables we need to store for saving and moving scene to scene
 	//Gives additional level of securtiy so cant write wrong variables into saved varibales.
 	public GameData localData = new GameData();

@@ -36,11 +36,13 @@ public class SoundManager : MonoBehaviour {
 		levelCheck ();
 	}
 
-	/*	Checks scene name and if the correct music is already playing
-		If not, stops all other audio sources and plays correct source*/
+	/*	Taylor: Yeah, there are a lot of if statements, but I have already typed all of it and don't feel like redoing it.
+		Don't judge me..
+	    Checks scene name and if the correct music is already playing
+		If not, stops all other audio sources and plays correct source */
 	public void levelCheck()
 	{
-		if (SceneManager.GetActiveScene().name == "Main Menu" && !mainMenuBackGround.isPlaying) 
+		if ((SceneManager.GetActiveScene().name == "Main Menu" || SceneManager.GetActiveScene().name == "Instructions") && !mainMenuBackGround.isPlaying) 
 		{
 			creditsBackground.Stop ();
 			level01Background.Stop ();
@@ -67,18 +69,24 @@ public class SoundManager : MonoBehaviour {
 			level01Background.Stop ();
 			level02Background.Stop ();
 			creditsBackground.Play ();
-
+		}
+		else if (SceneManager.GetActiveScene ().name == "Instructions" && mainMenuBackGround.isPlaying) 
+		{
+			
+			creditsBackground.Stop ();
+			level01Background.Stop ();
+			level02Background.Stop ();
+			mainMenuBackGround.Play ();
 		}
 	}
+
+
 	public void playSoundEffect(int index){
 		sourceEffect.clip = audioClips[index];
 		sourceEffect.Play ();
 	}
-
+}
 	/*void Update(){
 		if (Input.GetKey (KeyCode.Q))
 			playSoundEffect (0);
 	}*/
-
-
-}

@@ -25,6 +25,7 @@ public class MovementScript : MonoBehaviour {
 
 	//Taylor: health object is used in SaveGameToLocal() and IsLoadingGame() to set/save the number of hearts when saved and loaded
 	public HealthBarManager health;
+	public GameObject[] checkpointArray;
 
 	void Start () 
 	{
@@ -37,6 +38,7 @@ public class MovementScript : MonoBehaviour {
 		isGrounded = true;
 		movementEnabled = true;
 		//Taylor: Checks at start to see if game is loading. If so, sets variables.
+		checkpointArray = GameObject.FindGameObjectsWithTag("Checkpoint");
 		IsLoadingGame();
 	}
 
@@ -157,21 +159,22 @@ public class MovementScript : MonoBehaviour {
 		Sets LoadingScene to false to indicate loading is over */
 	public void IsLoadingGame()
 	{
-
 		if (SaveLoad.Instance.LoadingScene) 
 		{
 			GameManager.Instance.localData = SaveLoad.Instance.LocalData;
-
 			health.SetupScene(SaveLoad.Instance.LocalData.Health); 
-
 			lastCheckpoint = new Vector3 (SaveLoad.Instance.LocalData.LastCheckpointX, 
 				SaveLoad.Instance.LocalData.LastCheckpointY);
-			if (lastCheckpoint == GameObject.Find ("star").transform.position) 
-			{
-				Destroy (GameObject.Find ("star"));
-			}
-			transform.position = lastCheckpoint;
 
+			for (int i = 0; i < checkpointArray.Length; i++)
+			{
+				if (lastCheckpoint.x >= checkpointArray[i].transform.position.x)
+				{
+					Destroy (checkpointArray[i]);
+				}
+			}
+
+			transform.position = lastCheckpoint;
 			SaveLoad.Instance.LoadingScene = false;
 		}
 	}
