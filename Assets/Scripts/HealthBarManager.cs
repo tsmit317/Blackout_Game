@@ -15,6 +15,7 @@ public class HealthBarManager : MonoBehaviour {
 	public float knockbackTimeInSeconds;
 	public float invincibleTimeInSeconds;
 
+
 	private MovementScript thePlayer;
 	private Rigidbody2D playerbody;
 
@@ -133,8 +134,10 @@ public class HealthBarManager : MonoBehaviour {
 
 	IEnumerator haltMovement(){
 		thePlayer.movementEnabled = false;
+        thePlayer.canBoost = false;
 		yield return new WaitForSeconds (1f);
 		thePlayer.movementEnabled = true;
+        thePlayer.canBoost = true;
 	}
 
 	IEnumerator makeInvincible()

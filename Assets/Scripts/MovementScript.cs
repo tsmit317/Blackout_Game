@@ -20,7 +20,7 @@ public class MovementScript : MonoBehaviour {
 	//public BurstJump boost; //locke
 
 	private Vector2 boostSpeed = new Vector2(50,0); //locke
-	private bool canBoost = true; //locke
+	public bool canBoost = true; //locke
 	private float boostCooldown = 2f; //locke
 
 	//Taylor: health object is used in SaveGameToLocal() and IsLoadingGame() to set/save the number of hearts when saved and loaded
