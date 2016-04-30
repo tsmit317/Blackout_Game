@@ -134,7 +134,7 @@ public class MovementScript : MonoBehaviour {
 		float time = 0;
 		canBoost = false;
 
-		while (boostDuration > time)
+		while (boostDuration > time && movementEnabled == true)
 		{
 			time += Time.deltaTime;
 			GetComponent<Rigidbody2D>().velocity = boostSpeed;
@@ -143,8 +143,8 @@ public class MovementScript : MonoBehaviour {
 				GetComponent<Rigidbody2D>().AddForce(new Vector2(speed * 200, 0));
 			else if (isFacingRight == false)
 				GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed * 200, 0));
-
-			yield return 0;
+            
+			yield return 1;
 		}
 
 		yield return new WaitForSeconds(boostCooldown);

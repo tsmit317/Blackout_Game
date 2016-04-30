@@ -133,7 +133,8 @@ public class HealthBarManager : MonoBehaviour {
 	}
 
 	IEnumerator haltMovement(){
-		thePlayer.movementEnabled = false;
+        StopCoroutine("Boost");
+        thePlayer.movementEnabled = false;
         thePlayer.canBoost = false;
 		yield return new WaitForSeconds (1f);
 		thePlayer.movementEnabled = true;
@@ -149,6 +150,7 @@ public class HealthBarManager : MonoBehaviour {
 	}
 
 	public void SendKnockBackMessage(Vector3 hazardObjPos){
+        playerbody.velocity = new Vector2(0, 0);
 		StartCoroutine ("haltMovement"); 
 
 		if(hazardObjPos.x > playerbody.transform.position.x)
