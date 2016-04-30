@@ -2,21 +2,24 @@
 using System.Collections;
 
 public class CheckpointScript : MonoBehaviour {
+	private bool isActivated;
+	private Animator checkpointAnim;
 
-	// Use this for initialization
 	void Start () {
-	
+		isActivated = false;
+		checkpointAnim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		checkpointAnim.SetBool ("Activated", isActivated);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){		
 		if (collider.tag == "Player"){
 			collider.SendMessage ("SetCheckpointPosition", gameObject.transform.position);
-			Destroy (gameObject);
+			isActivated = true;
 		}			
 	}
+
 }
