@@ -55,7 +55,7 @@ public class MovementScript : MonoBehaviour {
 		if (isGrounded && Input.GetKeyDown(KeyCode.Space))
 			playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpSpeed);
 
-		if (!isGrounded && canBoost && Input.GetKeyDown(KeyCode.R))
+		if (!isGrounded && canBoost && Input.GetKeyDown(KeyCode.Space))
 		{
 			SoundManager.instance.playSoundEffect (0);
 			StartCoroutine(Boost(0.15f));
