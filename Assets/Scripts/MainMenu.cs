@@ -41,7 +41,6 @@ public class MainMenu : MonoBehaviour {
 
 	IEnumerator TitleFlashing () 
 	{
-		Debug.Log ("Ger");
 		soundManager.SetActive (false);
 		buttons.SetActive (false);
 		titleAnim.SetBool("FirstTimeMainMenu",true);
@@ -90,7 +89,7 @@ public class MainMenu : MonoBehaviour {
 		StartCoroutine (FadeOut ());
 	}
 
-	//Fades out after buttons. 
+	//Fades out after buttons.
 	IEnumerator FadeOut()
 	{
 		float fadeTime = GameObject.Find ("GameManager").GetComponent<FadeScript> ().StartToFade (1);
