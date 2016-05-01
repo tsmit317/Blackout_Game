@@ -22,15 +22,8 @@ public class DoorScript : MonoBehaviour {
 	}
 
 	public void EnterDoor(){
-		//For reusability - checks the current levels build index
-		if (SceneManager.GetActiveScene ().buildIndex == 2) 
-		{
-			SceneManager.LoadScene ("Level02");
-		} 
-		else if (SceneManager.GetActiveScene ().buildIndex == 3) 
-		{
-			SceneManager.LoadScene ("Credits");
-		}
+		
+		StartCoroutine (FadeOut ());
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -63,5 +56,22 @@ public class DoorScript : MonoBehaviour {
 		yield return new WaitForSeconds(0.25f);
 		doorAnim.SetBool ("isOpen", false);
 
+	}
+
+	//Taylor: Fades out scene
+	IEnumerator FadeOut()
+	{
+		float fadeTime = GameObject.Find ("GameManager").GetComponent<FadeScript> ().StartToFade (1);
+
+		yield return new WaitForSeconds (fadeTime);
+
+		if (SceneManager.GetActiveScene ().buildIndex == 2) 
+		{
+			SceneManager.LoadScene ("Level02");
+		} 
+		else if (SceneManager.GetActiveScene ().buildIndex == 3) 
+		{
+			SceneManager.LoadScene ("Credits");
+		}
 	}
 }

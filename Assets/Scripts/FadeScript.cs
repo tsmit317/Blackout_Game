@@ -1,68 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.SceneManagement;
+
 
 public class FadeScript : MonoBehaviour {
 
-	public Image Fade;
+	public Texture2D ftbTexture;
 	public float fadeSpeed;
-	public bool isSceneStart = true;
+	private int depth = -1000;
+	private float alpha = 1.0f;
+	//Fade direction: -1 = fade in/ 1 = fade out
+	private int fDirection = -1;
 
-	void Awake()
+	void OnGUI()
 	{
-		Fade.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+		alpha += (fDirection * fadeSpeed * Time.deltaTime);
+		alpha = Mathf.Clamp01 (alpha);
+		GUI.color = new Color (GUI.color.r, GUI.color.g, GUI.color.b, alpha);
+		GUI.depth = depth;
+		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), ftbTexture);
 	}
 
-	void Update()
+	public float StartToFade (int direction)
 	{
-		if (isSceneStart && SceneManager.GetActiveScene ().buildIndex != 0)
-		{
-			StartScene ();
-		}
+		fDirection = direction;
+		return(fadeSpeed);
 	}
 
-
-	void FadeSceneToClear()
+	public void LoadingLevel()
 	{
-		Fade.color = Color.Lerp(Fade.color, Color.clear, fadeSpeed * Time.deltaTime);
+		StartToFade (-1);
 	}
 
-
-	void FadeSceneToBlack()
-	{
-		Fade.color = Color.Lerp(Fade.color, Color.black, fadeSpeed * Time.deltaTime);
-	}
-
-
-	public void StartScene()
-	{
-		FadeSceneToClear();
-
-		if (Fade.color.a <= 0.05f)
-		{
-			Fade.color = Color.clear;
-			Fade.enabled = false;
-
-			isSceneStart = false;
-		}
-	}
-
-	public void Flash()
-	{
-		isSceneStart = false;
-		Fade.color = Color.white;
-	}
-
-	public void EndScene(int SceneNumber)
-	{
-		Fade.enabled = true;
-
-		FadeSceneToBlack();
-
-		if (Fade.color.a >= 0.97f) 
-		{
-			SceneManager.LoadScene (SceneNumber);
-		}
-	}
 }

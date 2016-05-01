@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 472440}
   - 114: {fileID: 11410898}
   - 114: {fileID: 11426146}
+  - 114: {fileID: 114000012003864786}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ce63cad1de64584921545c58ff4580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasFlashedOnce: 0
   localData:
     LastCheckpointX: 0
     LastCheckpointY: 0
@@ -79,3 +81,16 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135346}
   m_IsPrefabParent: 1
+--- !u!114 &114000012003864786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452f112fc8746476ba9baa5fa6be2fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ftbTexture: {fileID: 2800000, guid: 045b67992e8614601a13a35b98deded7, type: 3}
+  fadeSpeed: 1

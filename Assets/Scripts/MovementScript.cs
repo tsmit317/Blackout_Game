@@ -29,6 +29,9 @@ public class MovementScript : MonoBehaviour {
 
 	void Start () 
 	{
+		//Taylor: Fades screen in.
+		GameObject.Find ("GameManager").GetComponent<FadeScript> ().LoadingLevel();
+
 		playerBody = GetComponent<Rigidbody2D> ();
 		playerCollider = GetComponent<CircleCollider2D> ();
 		startingPos = gameObject.transform.position;
@@ -193,6 +196,8 @@ public class MovementScript : MonoBehaviour {
 		GameManager.Instance.localData.LastCheckpointY = lastCheckpoint.y;
 
 	}
+
+
 }
 
 

@@ -9,6 +9,10 @@ public class CreditsScene : MonoBehaviour {
 	public float scrollSpeed; 
 	public int timeUntilMain;
 
+	void Start()
+	{
+		GameObject.Find ("GameManager").GetComponent<FadeScript> ().LoadingLevel ();
+	}
 
 	// Update is called once per frame
 	void Update ()
