@@ -18,12 +18,14 @@ public class HealthBarManager : MonoBehaviour {
 
 	private MovementScript thePlayer;
 	private Rigidbody2D playerbody;
+	private SpriteRenderer spriteRenderer;
 
 	void Start ()
 	{
 		numberOfHearts = hearts.Length;
 		thePlayer = GetComponent<MovementScript> ();
 		playerbody = GetComponent<Rigidbody2D> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 
 		/*	Taylor: Checks to see if game is being loaded or if it is on Level02(or a different level). 
 		 	Basically, checks to see if its a new game. 
@@ -144,9 +146,10 @@ public class HealthBarManager : MonoBehaviour {
 	IEnumerator makeInvincible()
 	{
 		isInvincible = true;
-		yield return new WaitForSeconds(invincibleTimeInSeconds);
+		spriteRenderer.material.SetColor ("_Color", Color.grey);
+		yield return new WaitForSeconds (invincibleTimeInSeconds);
 		isInvincible = false;
-		//Debug.Log("Player is not Invincible");
+		spriteRenderer.material.SetColor ("_Color", Color.white);
 	}
 
 	public void SendKnockBackMessage(Vector3 hazardObjPos){
@@ -154,9 +157,9 @@ public class HealthBarManager : MonoBehaviour {
 		StartCoroutine ("haltMovement"); 
 
 		if(hazardObjPos.x > playerbody.transform.position.x)
-			playerbody.AddRelativeForce(new Vector2(-500,500));
+			playerbody.AddRelativeForce(new Vector2(-200,200));
 		else 
-			playerbody.AddForce(new Vector2(500,500));
+			playerbody.AddForce(new Vector2(200,200));
 	}
 
 	public int getNumberOfActiveHearts()

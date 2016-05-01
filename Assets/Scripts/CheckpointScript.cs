@@ -17,6 +17,10 @@ public class CheckpointScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider){		
 		if (collider.tag == "Player"){
+			if (!isActivated)//Plays checkpoint sound if it's not activated yet.
+			{
+				SoundManager.instance.playSoundEffect (3);
+			}
 			collider.SendMessage ("SetCheckpointPosition", gameObject.transform.position);
 			isActivated = true;
 		}			
