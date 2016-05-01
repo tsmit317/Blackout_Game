@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -19}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796067341
@@ -260,12 +260,17 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 1.2
   m_Text: 'Move left and right - A/D or arrow keys
+
+    Interact with lever - E
+
+    Dash - Double Space
 
     Jump - Space
 
-    Interact with lever - Right Shift
+    Reset - Q
+
 
 '
 --- !u!222 &796067342
@@ -869,7 +874,6 @@ MonoBehaviour:
   instructions: 
   back: Main Menu
   credits: 
-  fadeTime: 0
 --- !u!1 &1651411309
 GameObject:
   m_ObjectHideFlags: 0
