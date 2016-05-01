@@ -33,9 +33,10 @@ public class MainMenu : MonoBehaviour {
 		} 
 		else 
 		{
+			titleAnim.SetBool ("FirstTimeMainMenu", false);
 			buttons.SetActive (true);
 			soundManager.SetActive (true);
-			titleAnim.SetBool ("FirstTimeMainMenu", false);
+
 		}
 	}
 
