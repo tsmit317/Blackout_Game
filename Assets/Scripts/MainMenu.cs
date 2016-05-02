@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour {
 
 	IEnumerator TitleFlashing () 
 	{
-		soundManager.SetActive (false);
+		//soundManager.SetActive (false);
 		buttons.SetActive (false);
 		titleAnim.SetBool("FirstTimeMainMenu",true);
 		yield return new WaitForSeconds(3.2f);
