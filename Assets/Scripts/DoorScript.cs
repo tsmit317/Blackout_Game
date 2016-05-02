@@ -31,6 +31,7 @@ public class DoorScript : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			canActivate = true;     
 			StartCoroutine("animateOpening");
+			SoundManager.instance.playSoundEffect (8);
 		}
 	}
 
@@ -39,6 +40,7 @@ public class DoorScript : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) {
 			canActivate = false;
 			StartCoroutine("animateClosing");
+			SoundManager.instance.playSoundEffect (8);
 		}
 	}
 
