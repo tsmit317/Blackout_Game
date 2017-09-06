@@ -1403,10 +1403,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11489768, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: audioClips.Array.size
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 482782, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.06277046
@@ -1439,46 +1435,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 8299612, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220818, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299612, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8254190, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211164, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208204, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8254190, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208204, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211164, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489768, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
-      propertyPath: audioClips.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: 27dbc0588e9f64c4d852ae5bb02254b6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32d0c5c36c3d94e2a8e2dc15e0f73f33, type: 2}
   m_IsPrefabParent: 0
